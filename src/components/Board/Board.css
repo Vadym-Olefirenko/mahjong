@@ -1,12 +1,9 @@
-/* board */
-
 .board {
     width: 750px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     grid-gap: 15px;
-  
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

@@ -8,7 +8,11 @@ const Board = ({cards}) => {
     const [cardsMatch, setCardsMatch] = useState([]);
 
     useEffect(() => {
-        setTimeout(() => setTimeBeforeGame(false), 5000);
+        const timer = setTimeout(() => setTimeBeforeGame(false), 5000);
+
+        return () => {
+            clearTimeout(timer);
+        };
     }, []);
 
     const flipCard = (index) => {
