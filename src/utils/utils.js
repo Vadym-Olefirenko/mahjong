@@ -17,4 +17,8 @@ export const shuffle = (array) => {
     }
 
     return array;
-  }
+}
+
+const generatedArray = generateArray(16, 60);
+
+export const arrayOfNumbers = [...generatedArray, ...generatedArray];
