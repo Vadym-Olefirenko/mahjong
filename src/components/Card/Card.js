@@ -11,7 +11,7 @@ const Card = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame})
     const isActiveStyle = cardClicked ? ' active' : '';
     const isTimeoutStyle = timeBeforeGame ? ' is_timeout' : '';
 
-     return (           
+    return (           
         <button
             disabled={isMatched ? true : false}
             className={`card${isActiveStyle}${isMatchedStyle}${isTimeoutStyle}`}
@@ -20,7 +20,7 @@ const Card = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame})
         >
             {card}
         </button>               
-     )
+    )
 }
 
 export default Card;

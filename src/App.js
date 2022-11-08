@@ -7,9 +7,7 @@ import {arrayOfNumbers, shuffle} from './utils/utils';
 function App() {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    setCards(shuffle(arrayOfNumbers));
-  }, []);
+  useEffect(() => setCards(shuffle(arrayOfNumbers)), []);
 
   return (
     <div className="App">

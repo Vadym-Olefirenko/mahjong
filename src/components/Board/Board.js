@@ -15,13 +15,9 @@ const Board = ({cards}) => {
         };
     }, []);
 
-    const flipCard = (index) => {
-        setSelectedCards(opened => [...opened, index]);
-    }
+    const flipCard = (index) => setSelectedCards(opened => [...opened, index]);
     
-
     const checkCardsMatch = () => {
-        
         if(selectedCards < 2) return;
 
         const firstMatchedCard = cards[selectedCards[0]];
@@ -34,8 +30,7 @@ const Board = ({cards}) => {
 
     }
 
-    useEffect(() => {checkCardsMatch()}, [selectedCards]);
-
+    useEffect(() => checkCardsMatch(), [selectedCards]);
 
     return (
         <div className="board">
