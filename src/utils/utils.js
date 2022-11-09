@@ -1,13 +1,26 @@
+export const generateArrayOfPrimeNumbers = (n) => {
+    const array = [];
+    let count = 0;
 
-export const generateArray = (length, max) => {
-    const arr = [];
-        while(arr.length < length){
-            let randomnumber = Math.floor(Math.random() * max) + 1;
-            if(arr.indexOf(randomnumber) > -1) continue;
-            arr[arr.length] = randomnumber;
+        for (var j=2; j <= n; j++) {
+            for (let i = 1; i <= j; i++) {
+                if (j % i === 0) {
+                    count++;   
+                }
+            }
+
+            if(j === 1){
+                array.push(j);
+            }
+
+            if(count === 2){
+                array.push(j);
+            }
+
+            count = 0;
         }
-
-    return arr;
+        
+    return array;
 };
 
 export const shuffle = (array) => {
@@ -19,6 +32,6 @@ export const shuffle = (array) => {
     return array;
 }
 
-const generatedArray = generateArray(16, 60);
+const generatedArray = generateArrayOfPrimeNumbers(55);
 
 export const arrayOfNumbers = [...generatedArray, ...generatedArray];
