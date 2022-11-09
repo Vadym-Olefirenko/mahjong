@@ -18,7 +18,7 @@ const Card = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame})
             onClick={() => flipCard(index)}
             type="button" key={index}
         >
-            {card}
+            <span className='card-text'>{card}</span>
         </button>               
     )
 }

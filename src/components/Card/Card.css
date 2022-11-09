@@ -14,7 +14,7 @@
     justify-content: center;
     color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: 0.3s color;
+    transition: color 0.3s;
   }
   
   .card:hover {
@@ -24,16 +24,27 @@
   .card.active {
     border: 0.5px solid var(--active-card-color);
     pointer-events: none;
-    transition: 0.3s color;
+    transition: color 0.3s;
     color: var(--main-text-color);
   }
   
   .card.is_mutched {
     color: var(--main-text-color);
     border: 1px solid var(--main-text-color);
+    pointer-events: none;
   }
   
   .card.is_timeout {
     color: var(--main-text-color);
     pointer-events: none;
+  }
+
+  .card:not(.card.is_timeout, .card.active, .card.is_mutched) .card-text {
+    visibility: hidden;
+    transition: visibility 0.3s;
+  }
+
+  .card-text {
+    visibility: visible;
+    transition: visibility 0.3s;
   }
