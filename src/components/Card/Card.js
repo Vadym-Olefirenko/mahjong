@@ -13,7 +13,7 @@ const Card = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame})
 
     return (           
         <button
-            disabled={isMatched ? true : false}
+            disabled={isMatched}
             className={`card${isActiveStyle}${isMatchedStyle}${isTimeoutStyle}`}
             onClick={() => flipCard(index)}
             type="button" key={index}
