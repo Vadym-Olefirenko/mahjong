@@ -9,11 +9,11 @@ export const generateArrayOfPrimeNumbers = (n) => {
                 }
             }
 
-            if(j === 1){
+            if (j === 1) {
                 array.push(j);
             }
 
-            if(count === 2){
+            if (count === 2) {
                 array.push(j);
             }
 
