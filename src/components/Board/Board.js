@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import './Board.css';
+import "./Board.css";
 import Card from "../Card/Card";
 
 const Board = ({cards}) => {

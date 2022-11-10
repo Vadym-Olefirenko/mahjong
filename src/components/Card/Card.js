@@ -1,4 +1,4 @@
-import './Card.css';
+import "./Card.css";
 
 const Card = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame}) => {
     let cardClicked = false;
