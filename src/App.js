@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import AppHeader from './components/AppHeader/AppHeader';
-import Board from './components/Board/Board';
-import {generateArray, shuffle} from './utils/generateArray';
-
-const generatedArray = generateArray(16, 60);
-const arrayOfNumbers = [...generatedArray, ...generatedArray];
+import { useEffect, useState } from "react";
+import "./App.css";
+import AppHeader from "./components/AppHeader/AppHeader";
+import Board from "./components/Board/Board";
+import {arrayOfNumbers, shuffle} from "./utils/utils";
 
 function App() {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    setCards(shuffle(arrayOfNumbers));
-  }, []);
+  useEffect(() => setCards(shuffle(arrayOfNumbers)), []);
 
   return (
     <div className="App">
