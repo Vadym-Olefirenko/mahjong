@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import AppHeader from "./components/AppHeader/AppHeader";
+import AppHeader from "./components/AppHeader/AppHeader.tsx";
 import Board from "./components/Board/Board";
 import {arrayOfNumbers, shuffle} from "./utils/utils";
 
