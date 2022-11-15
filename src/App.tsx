@@ -5,7 +5,7 @@ import Board from "./components/Board/Board";
 import {arrayOfNumbers, shuffle} from "./utils/utils";
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<Array<number>>([]);
 
   useEffect(() => setCards(shuffle(arrayOfNumbers)), []);
 
