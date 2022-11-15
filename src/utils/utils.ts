@@ -1,8 +1,8 @@
-export const generateArrayOfPrimeNumbers = (n) => {
-    const array = [];
-    let count = 0;
+export const generateArrayOfPrimeNumbers = (n: number): number[] => {
+    const array: number[] = [];
+    let count: number = 0;
 
-        for (var j=2; j <= n; j++) {
+        for (let j = 2; j <= n; j++) {
             for (let i = 1; i <= j; i++) {
                 if (j % i === 0) {
                     count++;   
@@ -23,7 +23,7 @@ export const generateArrayOfPrimeNumbers = (n) => {
     return array;
 };
 
-export const shuffle = (array) => {
+export const shuffle = (array: number[]): number[] => {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -32,6 +32,6 @@ export const shuffle = (array) => {
     return array;
 }
 
-const generatedArray = generateArrayOfPrimeNumbers(55);
+const generatedArray: number[] = generateArrayOfPrimeNumbers(55);
 
-export const arrayOfNumbers = [...generatedArray, ...generatedArray];
+export const arrayOfNumbers: number[] = [...generatedArray, ...generatedArray];
