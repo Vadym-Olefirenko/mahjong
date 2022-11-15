@@ -1,11 +1,11 @@
-import React from "react"
+import {FC} from "react"
 import "./AppHeader.css";
 
 type AppHeaderProps = {
     text: string
 }
 
-const AppHeader = ({text}: AppHeaderProps) => {
+const AppHeader: FC<AppHeaderProps> = ({text}) => {
     return <h1>{text}</h1>
 }
 
