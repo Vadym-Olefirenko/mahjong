@@ -10,9 +10,12 @@ type CardProps = {
     timeBeforeGame: boolean;
 }
 
-type IsMutchedType = ' is_mutched' | '';
-type IsActiveType = ' active' | '';
-type IsTimeoutType = ' is_timeout' | '';
+enum CardClassTypes {
+    IsMutchedType = 'is_mutched',
+    IsActiveType = 'active',
+    IsTimeoutType = 'is_timeout',
+    card = 'card'
+}
 
 const Card: FC<CardProps> = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame}) => {
     let cardClicked: boolean = false;
@@ -26,14 +29,31 @@ const Card: FC<CardProps> = ({card,index, selectedCards, cardsMatch, flipCard, t
         isMatched = true;
     };
 
-    const isMatchedStyle: IsMutchedType = isMatched ? ' is_mutched' : '';
-    const isActiveStyle: IsActiveType = cardClicked ? ' active' : '';
-    const isTimeoutStyle: IsTimeoutType = timeBeforeGame ? ' is_timeout' : '';
+    const cardClassNames = (): string =>  {
+        const classNames: CardClassTypes[] = [CardClassTypes.card];
+
+        switch (true) {
+            case isMatched:
+                classNames.push(CardClassTypes.IsMutchedType);
+                break;
+            case cardClicked:
+                classNames.push(CardClassTypes.IsActiveType);
+                break;
+            case timeBeforeGame:
+                classNames.push(CardClassTypes.IsTimeoutType);
+                break;
+        
+            default:
+                break;
+        }
+
+        return classNames.join(' ');
+    }
 
     return (           
         <button
             disabled={isMatched}
-            className={`card${isActiveStyle}${isMatchedStyle}${isTimeoutStyle}`}
+            className={cardClassNames()}
             onClick={() => flipCard(index)}
             type="button" key={index}
         >
