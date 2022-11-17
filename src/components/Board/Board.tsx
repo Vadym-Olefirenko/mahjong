@@ -19,7 +19,7 @@ const Board: FC<BoardProps> = ({cards}) => {
         };
     }, []);
 
-    const flipCard = (index: number):void => setSelectedCards(opened => [...opened, index]);
+    const flipCard = (index: number): void => setSelectedCards(opened => [...opened, index]);
     
     const checkCardsMatch = (): void => {
         if (selectedCards.length < 2) {

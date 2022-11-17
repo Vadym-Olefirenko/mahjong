@@ -17,7 +17,7 @@ enum CardClassTypes {
     card = 'card'
 }
 
-const Card: FC<CardProps> = ({card,index, selectedCards, cardsMatch, flipCard, timeBeforeGame}) => {
+const Card: FC<CardProps> = ({card, index, selectedCards, cardsMatch, flipCard, timeBeforeGame}) => {
     let cardClicked: boolean = false;
     let isMatched: boolean = false;
 
