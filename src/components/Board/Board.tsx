@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import "./Board.css";
 import Card from "../Card/Card";
 
-const Board = ({cards}) => {
-    const [timeBeforeGame, setTimeBeforeGame] = useState(true);
-    const [selectedCards, setSelectedCards] = useState([]);
-    const [cardsMatch, setCardsMatch] = useState([]);
+type BoardProps = {
+    cards: number[]
+}
+
+const Board: FC<BoardProps> = ({cards}) => {
+    const [timeBeforeGame, setTimeBeforeGame] = useState<boolean>(true);
+    const [selectedCards, setSelectedCards] = useState<Array<number>>([]);
+    const [cardsMatch, setCardsMatch] = useState<Array<number>>([]);
 
     useEffect(() => {
         const timer = setTimeout(() => setTimeBeforeGame(false), 5000);
@@ -15,15 +19,15 @@ const Board = ({cards}) => {
         };
     }, []);
 
-    const flipCard = (index) => setSelectedCards(opened => [...opened, index]);
+    const flipCard = (index: number): void => setSelectedCards(opened => [...opened, index]);
     
-    const checkCardsMatch = () => {
-        if (selectedCards < 2) {
+    const checkCardsMatch = (): void => {
+        if (selectedCards.length < 2) {
             return;
         };
 
-        const firstMatchedCard = cards[selectedCards[0]];
-        const secondMatchedCard = cards[selectedCards[1]];
+        const firstMatchedCard: number = cards[selectedCards[0]];
+        const secondMatchedCard: number = cards[selectedCards[1]];
 
         if (secondMatchedCard && firstMatchedCard === secondMatchedCard) {
             setCardsMatch([...cardsMatch, firstMatchedCard]);
